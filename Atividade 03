@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <string.h>
+struct Dados {
+    char nome[50];
+    int idade;
+    float salario;
+};
+
+int main() {
+    struct Dados pessoa;
+    printf("Digite o nome: ");
+    fgets(pessoa.nome, sizeof(pessoa.nome), stdin);
+    printf("Digite a idade: ");
+    scanf("%d", &pessoa.idade);
+    printf("Digite o salário: ");
+    scanf("%f", &pessoa.salario);
+    while (getchar() != '\n');
+    FILE *arquivo = fopen("dados.txt", "w");
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo.\n");
+        return 1;
+    }
+    fprintf(arquivo, "Nome: %s", pessoa.nome);
+    fprintf(arquivo, "Idade: %d\n", pessoa.idade);
+    fprintf(arquivo, "Salário: %.2f\n", pessoa.salario);
+    fclose(arquivo);
+
+    printf("Os dados foram gravados no arquivo 'dados.txt'.\n");
+
+    return 0;
+}
