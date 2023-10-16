@@ -1,0 +1,42 @@
+#include <stdio.h>
+void calcularMatrizSoma(int tamanho, int A[][100], int B[][100], int C[][100]) {
+    for (int i = 0; i < tamanho; i++) {
+        for (int j = 0; j < tamanho; j++) {
+            C[i][j] = A[i][j] + B[i][j];
+        }
+    }
+}
+
+int main() {
+    int tamanho;
+    printf("Digite o tamanho da matriz quadrada: ");
+    scanf("%d", &tamanho);
+
+    int matrizA[100][100], matrizB[100][100], matrizC[100][100];
+
+    printf("Digite os elementos da matriz A:\n");
+    for (int i = 0; i < tamanho; i++) {
+        for (int j = 0; j < tamanho; j++) {
+            scanf("%d", &matrizA[i][j]);
+        }
+    }
+
+    printf("Digite os elementos da matriz B:\n");
+    for (int i = 0; i < tamanho; i++) {
+        for (int j = 0; j < tamanho; j++) {
+            scanf("%d", &matrizB[i][j]);
+        }
+    }
+
+    calcularMatrizSoma(tamanho, matrizA, matrizB, matrizC);
+
+    printf("Matriz Soma (C = A + B):\n");
+    for (int i = 0; i < tamanho; i++) {
+        for (int j = 0; j < tamanho; j++) {
+            printf("%d ", matrizC[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
