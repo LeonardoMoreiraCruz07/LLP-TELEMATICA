@@ -1,0 +1,52 @@
+#include <stdio.h>
+
+void imprimirDiagonalPrincipal(int matriz[][100], int tamanho) {
+    printf("Diagonal Principal da Matriz:\n");
+    for (int i = 0; i < tamanho; i++) {
+        printf("%d ", matriz[i][i]);
+    }
+    printf("\n");
+}
+void somarMatrizes(int matrizA[][100], int matrizB[][100], int resultado[][100], int tamanho) {
+    for (int i = 0; i < tamanho; i++) {
+        for (int j = 0; j < tamanho; j++) {
+            resultado[i][j] = matrizA[i][j] + matrizB[i][j];
+        }
+    }
+}
+
+int main() {
+    int tamanho;
+    printf("Digite o tamanho da matriz quadrada: ");
+    scanf("%d", &tamanho);
+
+    int matrizA[100][100], matrizB[100][100], resultado[100][100];
+
+    printf("Digite os elementos da matriz A:\n");
+    for (int i = 0; i < tamanho; i++) {
+        for (int j = 0; j < tamanho; j++) {
+            scanf("%d", &matrizA[i][j]);
+        }
+    }
+
+    printf("Digite os elementos da matriz B:\n");
+    for (int i = 0; i < tamanho; i++) {
+        for (int j = 0; j < tamanho; j++) {
+            scanf("%d", &matrizB[i][j]);
+        }
+    }
+
+    imprimirDiagonalPrincipal(matrizA, tamanho);
+
+    somarMatrizes(matrizA, matrizB, resultado, tamanho);
+
+    printf("Matriz Soma (A + B):\n");
+    for (int i = 0; i < tamanho; i++) {
+        for (int j = 0; j < tamanho; j++) {
+            printf("%d ", resultado[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
