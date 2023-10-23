@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <locale.h>  // Para setlocale
+#include <locale.h> 
 
 struct Node {
     int data;
